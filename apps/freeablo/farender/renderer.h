@@ -23,7 +23,7 @@ namespace FAWorld
 }
 
 namespace FARender
-{       
+{
 
     class Renderer;
     class Tileset
@@ -65,7 +65,7 @@ namespace FARender
     {
         public:
             static Renderer* get();
-            
+
             Renderer(int32_t windowWidth, int32_t windowHeight, bool fullscreen);
             ~Renderer();
 
@@ -98,7 +98,7 @@ namespace FARender
 
             void getWindowDimensions(int32_t& w, int32_t& h);
 
-            
+
         private:
             bool loadGuiTextureFunc(Rocket::Core::TextureHandle& texture_handle, Rocket::Core::Vector2i& texture_dimensions, const Rocket::Core::String& source);
             bool generateGuiTextureFunc(Rocket::Core::TextureHandle& texture_handle, const Rocket::Core::byte* source, const Rocket::Core::Vector2i& source_dimensions);
@@ -120,10 +120,10 @@ namespace FARender
             std::mutex mDoneMutex;
             std::condition_variable mDoneCV;
 
-            nk_context mNuklearContext = { 0 };
-            Render::NuklearGraphicsContext mNuklearGraphicsData = { 0 };
+            nk_context mNuklearContext = {};
+            Render::NuklearGraphicsContext mNuklearGraphicsData = {};
 
-            std::atomic_int64_t mWidthHeightTmp = 0;
+            std::atomic<std::int64_t> mWidthHeightTmp = {0};
     };
 }
 
